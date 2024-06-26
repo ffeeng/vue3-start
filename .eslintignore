@@ -1,0 +1,15 @@
+library
+dist
+node_modules
+public
+*.md
+index.html
+src/assets
+src/styles
+*.less
+icons/
+*.png
+*.jpg
+*.svg
+*.mp3
+*.d.ts

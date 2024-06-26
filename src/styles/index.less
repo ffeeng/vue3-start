@@ -1,0 +1,22 @@
+@import url('./common.less');
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+
+  &-thumb {
+    background-color: rgba(54, 66, 90, 0.1);
+    border-radius: 4px;
+    transition: 0.2s;
+    &:hover {
+      background-color: rgba(54, 66, 90, 0.2);
+    }
+    &:active {
+      background-color: rgba(54, 66, 90, 0.3);
+    }
+  }
+
+  &-track {
+    background-color: transparent;
+  }
+}
