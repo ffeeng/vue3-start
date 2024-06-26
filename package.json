@@ -1,0 +1,71 @@
+{
+  "name": "plugin-maker",
+  "version": "0.1.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite serve",
+    "build": "vue-tsc -b && vite build",
+    "build:apps": "cross-env NODE_ENV=production node build/prod.mjs --csssplit",
+    "release": "pnpm test && pnpm build && changelogen --release && pnpm publish && git push --follow-tags",
+    "lint": "eslint . --fix",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest --coverage",
+    "preinstall": "node ./scripts/preinstall.js",
+    "postinstall": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "vue-tsc": "^2.0.22",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "@iarna/toml": "^2.2.5",
+    "@rollup/plugin-alias": "^5.1.0",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^6.19.1",
+    "@vitejs/plugin-vue": "^5.0.3",
+    "@vitest/coverage-v8": "^1.2.1",
+    "@vue/eslint-config-typescript": "^11.0.0",
+    "@web/dev-server": "^0.1.35",
+    "@web/dev-server-legacy": "^1.0.1",
+    "changelogen": "^0.5.5",
+    "chokidar": "^3.5.3",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.1",
+    "eslint": "^8.56.0",
+    "eslint-plugin-vue": "^9.20.1",
+    "fs-extra": "^11.2.0",
+    "less": "^4.2.0",
+    "lint-staged": "^15.2.0",
+    "minimist": "^1.2.8",
+    "npm-run-all": "^4.1.5",
+    "picocolors": "^1.0.0",
+    "simple-git-hooks": "^2.9.0",
+    "tslib": "^2.6.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vitest": "^1.2.1",
+    "vue-eslint-parser": "^9.4.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged",
+    "commit-msg": "node scripts/verifyCommit.js"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "pnpm run lint"
+    ]
+  },
+  "dependencies": {
+    "vue": "^3.4.13"
+  },
+  "packageManager": ">=pnpm@8.0.0",
+  "engines": {
+    "node": ">=16.14.0"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@iarna/toml@2.2.5": "patches/@iarna__toml@2.2.5.patch"
+    }
+  }
+}
