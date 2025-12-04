@@ -15,13 +15,13 @@ module.exports = {
         'refactor',
         'revert',
         'style',
-        'test'
-      ]
+        'test',
+      ],
     ],
     'subject-case': [
       2,
       'never',
-      ['start-case', 'pascal-case', 'upper-case']
+      ['start-case', 'pascal-case', 'upper-case'],
     ],
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
@@ -31,6 +31,5 @@ module.exports = {
     'scope-case': [2, 'always', 'lower-case'],
     'body-leading-blank': [1, 'always'],
     'body-max-line-length': [2, 'always', 100],
-  }
-};
-
+  },
+}
