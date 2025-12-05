@@ -18,5 +18,13 @@ export default antfu({
       singleline: 'never',
       multiline: 'never',
     }],
+    'no-console': 'off',
+    'no-unused-vars': 'warn',
+    'vue/block-order': [
+      'error',
+      {
+        order: ['template', 'script', 'style'],
+      },
+    ],
   },
 })
